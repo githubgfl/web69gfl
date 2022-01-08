@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* 
+            1 div进行无高度划分
+           
+            2 pc主流布局 固定且居中
+            margin：0 auto
+            position：relative
+            left：50%
+            margin-left-固定值除以2
+           
+           3  左右固定  中间弹性
+
+              双翼布局 淘宝UED
+        
+              圣杯布局 国外
+        
+        三栏布局的方法，左右定宽，中间自适应，
+        是很常见的布局，其原理差不多，都有负边距的应用 
+        
+         */
+
+         body
+         {
+             margin: 0px;
+             padding:0px;
+         }
+.abc1{
+    width: 300px;
+     height: 300px;
+    position: absolute;
+    left: 0px;
+    top: 0px; 
+       /* float: left;  */
+    background-color: violet;
+}
+
+.abc2{
+    height: 300px;
+    margin-left: 300px;
+    margin-right: 300px;
+    
+    background-color: turquoise;
+}
+.abc3{
+    width: 300px;
+    height: 300px;
+    background-color: tomato;
+    /* float: right;
+    margin-top: -300px; */
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+    </style>
+</head>
+<body>
+   
+        <div class="abc1">1</div>
+        <div class="abc2"></div>
+        <div class="abc3">3</div>
+    
+    
+</body>
+</html>

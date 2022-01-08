@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- 
+      盒子分为 
+
+      centert内容区
+      padding 内边距
+      border  边框
+      margin  外边距
+
+      每个都分为上下左右
+      top  right  bottom  left   
+      设置一个值  上下左右是都这个值
+      设置二个值  表示  上下一个值  左右一个值
+      设置三个值  表示  上一个值   左右一个值   下一个值
+      设置四个值  表示   上  右  下  左  四个值     -->
+<!-- 
+     标签分为块元素和行内元素
+     
+     
+     行内元素不能设置宽度
+     转块元素  或者设置内边距
+     display：block;
+     dispay:inline;
+
+ -->
+ <!-- 浮动元素三大特点
+   1 脱离文档流 父元素的大小减去这个元素的高度
+   2 浮动元素宽度盒子恢复到实际大小
+   3 后面的元素顶上来,下面的元素的内容会错开浮动元素的实际宽度
+
+-->
+
+
+    <style>
+        .abc{
+            width: 1000px;
+            height: 500px;
+            border: 1px red solid;
+            text-align: center;
+            vertical-align: middle;
+            
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+
+            
+            border: 1px red solid;
+        }
+        
+      .a{
+          width: 300px;
+          height: 300px;
+          border: 1px red solid;
+          float: left;
+      }
+        .b{
+        width: 300px;
+          height: 300px;
+          border: 1px red solid;
+          float: left; 
+      } 
+      .c{
+        width: 300px;
+          height: 300px;
+          border: 1px red solid;
+          float: left;
+      }
+
+    div:nth-child(2)
+           {width: 300px;
+          height: 300px;
+          border: 1px black solid;
+          float: left;} 
+         
+         
+         
+         
+     
+    </style>
+</head>
+
+
+
+<body>
+       <div class="abc">
+        <div class="a">我是第一个
+             <a href="#">我是帅哥</a>
+        </div>
+       <div>我是第2个</div>
+        <div class="c">我是第三个</div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

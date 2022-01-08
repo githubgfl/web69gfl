@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">  -->
+
+    <title>Document</title>
+
+    <style>
+/* 
+
+CSS2.1浏览器兼容性问题:同一份源代码在不同浏览器或同一个浏览器的不同版本显示效果不同或错位
+
+ 主要原因:IE6/7对盒图支持不标准，从IE8就标准了
+
+面试题:高频
+CSS2.1中浏览器兼容性问题及解决方案:
+
+1.同一个标记在不同浏览器中（IE6/7）默认样式不同
+
+   举例:IE6/7 body margin:15px 10px;
+         IE8+ body margin:8px; 
+
+        IE6/7 ul margin-left不为零
+        IE8+  ul padding-left 不为零
+        所有浏览器ul  margin-top margin-bottom都不为零
+
+    解决:CSS样式初始化 
+       --css reset
+       --自己写
+    
+         body,ul,p,h1,h2,h3,h4,h5,h6{
+            margin:0px;
+            padding:0px;
+         }
+
+     CSS 样式初始化功能:
+           --清除标记的默认样式，以便后面统一控制
+           --解决同一个标记在不同浏览器默认样式不同问题
+
+
+
+2.不同浏览器（IE和其他浏览器）对一个标记解释不同
+问题:  
+  IE:可以给<input type="radio/checkbox">设置背景色
+  其他浏览器不可以给 <input type="radio/checkbox">设置背景色
+
+  解决:不要给<input type="radio/checkbox">设置背景色
+
+3.浏览器渲染bug
+ 问题:  
+   img三像素bug
+
+ 解决:img{vertical-align:top}
+ 
+      img{display:block;} 不建议使用 
+
+
+4.IE6专有BUG   了解
+   --特定触发条件，触发特定Bug，有特定解决方案
+   （1）IE6最小高度问题---19px  解决:overflow:hidden;
+   （2）IE6中li内容浮动，li设置height，产生间隙  解决:vertical-align:top
+   （3）IE6中元素向某一侧浮动，然后还设置这一侧的margin，margin加倍
+       解决:display:inline
+5.其他bug
+   --IE条件注释 (仅IE6/7/8/9)  
+   --css hack  (仅IE支持)
+
+
+
+
+IE条件注释:IE6/7/8/9 
+ 
+1.兼容性IE6/7/8/9支持
+
+  如果想让IE10/IE11兼容IE条件注释，加入语句让IE10和IE11工作IE9兼容模式下: <meta http-equiv="X-UA-Compatible" 
+  content="IE=EmulateIE9"> 
+
+2.IE6/7/8/9可以识别是条件判断语句；其他浏览器会将IE条件注释当做HTML注释忽略
+
+3.IE条件注释，支持HTML CSS  JS
+ */
+
+   div{
+       width: 200px;
+       height: 200px;
+       background-color: blue;
+        *background-color:red;  /* 支持ie7 */
+       _background-color:#09f;  /*支持ie6 */
+
+       /* 说明:提升样式优先级  !important; IE6不支持
+ 
+          说明:CSS hack 不要滥用
+ */
+   }
+    </style>
+</head>
+<body>
+       <!--[if IE]>
+    
+        <h3>这个只在IE6显示</h3>
+    
+        <![endif]-->
+      
+       <div>
+    
+    
+       </div>
+
+</body>
+</html>

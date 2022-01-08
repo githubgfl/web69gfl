@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IEbug终极复习</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="action.js"></script>
+	<script type="text/javascript" src="iepng.js"></script>
+</head>
+<body>
+<div id="container">
+	<div id="minHeight">
+		<div class="head">NO1.最小高度bug</div>
+		<div class="describe">IE支持的最小高度是19px,当高度小于19px时，ie6会显示为19px。<br>
+		<font style="color:#f00;">解决方案：给该元素添加一个CSS属性：overflow:hidden;</font></div>
+		<div class="content">
+			<div>
+				请输入一个高度值：<input type="text" id="height" style="width:30px;">px;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btn1" value="执行">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btn1s" value="解决兼容性问题">
+			</div>
+			<div id="minHeightWin"></div>
+			<div id="minHeightWin2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi dolor minus quis culpa mollitia, et libero labore voluptatum quod.</div>
+		</div>
+	</div>
+
+
+	<div id="ulLi">
+		<div class="head">NO2.ul中li的问题</div>
+		<div class="describe">存在这么一个结构:<br>&lt;ul&gt;<br>&lt;li&gt;&lt;p&gt;新闻&lt;/p&gt;&lt;span&gt;2014-4-9&lt;/span&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;p&gt;新闻&lt;/p&gt;&lt;span&gt;2014-4-9&lt;/span&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;p&gt;新闻&lt;/p&gt;&lt;span&gt;2014-4-9&lt;/span&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+		当li没有浮动,并且设置了li的height值，而li中的元素(即p标记或者span标记)浮动时，高版本浏览器显示正常，IE6在li之间有一条缝隙。<br>
+		<font style="color:#f00;">解决方案：给li添加一个CSS属性：vertical-align:top;</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn2" value="解决兼容性问题">
+			</div>
+			<div id="ul_li">
+				<ul>
+					<li>
+						<p>新闻</p>
+						<span>2014/4/19</span>
+					</li>
+					<li>
+						<p>新闻</p>
+						<span>2014/4/19</span>
+					</li>
+					<li>
+						<p>新闻</p>
+						<span>2014/4/19</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="floatQ">
+		<div class="head">NO3.相对定位的bug</div>
+		<div class="describe">当子元素有相对定位时，父元素的overflow将不起作用。DOM结构是：<br>&lt;div id="box"&gt;<br>&lt;div id="son"&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>
+		<font style="color:#f00;">解决方案：给父div(即id为box的div)添加一个CSS属性：position: relative;</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn3" value="解决兼容性问题">
+			</div>
+			<div id="floatBox">
+				<div id="son"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="divs">
+		<div class="head">NO4.多个div使用同行显示的3像素bug</div>
+		<div class="describe">多个div要想在通过一行显示，可以使用使前边的div浮动来达到效果，但在IE6中会有3像素bug。DOM结构是：<br>&lt;div id="div1"&gt;&lt;/div&gt;<br>&lt;div id="div2"&gt;&lt;/div&gt;<br><br>
+		<font style="color:#f00;">解决方案：使所有的div都浮动。<span style="text-decoration:underline;">只需要记住要是多个div在同一行显示就是所有的div都浮动就可以避免这个问题。</span></font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn4" value="使div1浮动">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" id="btn4s" value="解决兼容性问题">
+			</div>
+			<div id="divsBox">
+				<div id="div1"></div>
+				<div id="div2"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dotted">
+		<div class="head">NO5.1像素点线问题</div>
+		<div class="describe">设置1像素的点线，即border:1px dotted #f00;在IE6中会显示成虚线，而大于1像素的则没问题。<br>
+		<font style="color:#f00;">解决方案：避免使用，如果一定要用，就用背景图片重复代替。</font></div>
+		<div class="content">
+			<div>
+				在各浏览器中对比线的效果。
+			</div>
+			<div id="dottedLineBox">
+				<div id="dottedLinediv1">我的边框是1像素的虚线！</div>
+				<div id="dottedLinediv2">我的边框是1像素的点线，看它在IE6中变成虚线了没？</div>
+				<div id="dottedLinediv3">我的边框是2像素的点线，看它在IE6中变成虚线了没？</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="marginBug">
+		<div class="head">NO6.双外边距bug</div>
+		<div class="describe">块级元素浮动并有相应的横向margin值时，显示的距离会加倍！DOM结构是：<br>&lt;div id="marginBugBox"&gt;<br>&lt;div id="marginBugDiv1"&gt;&lt;/div&gt;<br>&lt;div id="marginBugDiv2"&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>
+		<font style="color:#f00;">解决方案：给浮动的块级元素添加CSS属性：display:inline;</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn6" value="使marginBugDiv1向右浮动">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btn6s" value="设置marginBugDiv1的margin-right:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" id="btn6ss" value="解决兼容性问题">
+			</div>
+			<div id="marginBugBox">
+				<div id="marginBugDiv1">DIV1>>>>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consectetur inventore, ab pariatur minus, cupiditate quidem iste aliquid asperiores, dolor tempore omnis praesentium, quibusdam? Dolores suscipit est saepe facere, quidem.</div>
+				<div id="marginBugDiv2">DIV2>>>>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa eos temporibus sit magnam quas amet molestiae eius officiis vitae commodi, nemo unde dignissimos voluptatem dolores nobis, numquam eum, dolore error.</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="imgBug">
+		<div class="head">NO7.图片下空隙问题</div>
+		<div class="describe">当div中存在图片时，图片下方会多出一条缝隙。DOM结构是：<br>&lt;div id="box"&gt;<br>&lt;div id="son"&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>出错原因：img有默认的对齐方式<br>
+		<font style="color:#f00;">解决方案：可以给img标记添加display:block(解决单张图片问题)，也可以给img添加vertical-align:top;</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn7" value="解决兼容性问题(display:block)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="btn7s" value="解决兼容性问题(vertical-align:top)">
+			</div>
+			<div id="imgBox">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati vitae porro omnis voluptate officiis incidunt aliquid natus sapiente pariatur repellendus perferendis quod esse, unde eligendi voluptatibus nesciunt, neque nihil dicta!</p>
+				<img src="3.jpg" alt="">
+			</div>
+		</div>
+	</div>
+
+
+	<div id="inputBug1">
+		<div class="head">NO8.输入类型表单控件bug1</div>
+		<div class="describe">输入类型的表单控件上下各有1px的间隙。(这里对边框的控制是border:1px solid #f00;)<br>DOM结构是：<br>&lt;div id="inoutBox"&gt;<br>&lt;input type="text" id="input"&gt;<br>&lt;/div&gt;<br>
+		<font style="color:#f00;">解决方案：给input标签加浮动。</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn8" value="解决兼容性问题(使input标记浮动)">
+			</div>
+			<div id="inputBox">
+				<input type="text" id="input">
+			</div>
+		</div>
+	</div>
+
+
+	<div id="inputBug2">
+		<div class="head">NO9.输入类型表单控件bug2</div>
+		<div class="describe">在这里我们给输入文本框边框的设置为border:none;会发现IE6中边框依旧存在(大家可以截图去放大看一下。)。<br>DOM结构是：<br>&lt;div id="inoutBox"&gt;<br>&lt;input type="text" id="input2"&gt;<br>&lt;/div&gt;<br>
+		<font style="color:#f00;">解决方案：给input添加背景，background-color:#fff;或者使用把border设为0px。</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn9" value="解决兼容性问题(设置背景)">
+				<input type="button" id="btn9s" value="解决兼容性问题(把border设为0px)">
+			</div>
+			<div id="inputBox2">
+				<input type="text" id="input2">
+			</div>
+		</div>
+	</div>
+
+
+	<div id="indexBug">
+		<div class="head">NO10.z-index问题</div>
+		<div class="describe">两个相邻的元素，对其中一个元素(indexOne)设置了z-index，但他的兄弟元素(indexTwo)没有设置z-index，当对兄弟元素(indexTwo)的子元素(indexThree)设置z-index值时无论设置为多大，他在IE6中永远都是位于最底层。<br>DOM结构是：<br>&lt;div id="indexOne" style="position:absolute;z-index:3;"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;img src="..."&gt;<br>&lt;/div&gt;<br>&lt;div id="indexTwo style="position:absolute;"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;div id="indexThree" style="position:absolute;z-index:8;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="..."&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br>
+		<font style="color:#f00;">解决方案：对他的父元素(indexTwo)也设置z-index值，并且要比相邻的元素(indexOne)的index值要大。</font></div>
+		<div class="content">
+			<div>
+				<input type="button" id="btn10" value="解决兼容性问题(给indexTwo添加index值为5)">
+			</div>
+			<div id="indexBox">
+				<div id="indexOne">
+					<img src="beauty1.jpg" alt="indexOne">
+				</div>
+				<div id="indexTwo">
+					<div id="indexThree">
+						<img src="3.jpg" alt="indexThree">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="aBug">
+		<div class="head">NO11.超链接顺序声明</div>
+		<div class="describe">超链接样式声明顺序为a:link,a:visited{...};a:hover{...},否则样式不被激活。<br><font style="color:#f00;">解决方案：按正确的顺序声明。</font></div>
+		<div class="content">
+			<div id="aBox">
+				<div id="a1">
+					<a href="javascript:void(0);">这是一个超链接，样式声明顺序为a:link,a:hover;a:visited.</a>
+				</div>
+				<div id="a2">
+					<a href="javascript:void(0);">这是一个超链接，样式声明顺序为a:link,a:visited;a:hover.</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="selectBug">
+		<div class="head">NO12.select未被遮盖的bug</div>
+		<div class="describe">如果有元素应用了相对定位或者绝对定位，IE6中此元素就会被被select遮盖。<br>
+		DOM结构为：<br>&lt;div id="select"&gt;<br>
+				&nbsp;&nbsp;&nbsp;&lt;form&gt;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;select name="" id="selects"&gt;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="1"&gt;测试项1&lt;/option&gt;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="2"&gt;测试项2&lt;/option&gt;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="3"&gt;测试项3&lt;/option&gt;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="4"&gt;测试项4&lt;/option&gt;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="5"&gt;测试项5&lt;/option&gt;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="box" style="position:relative;top:-25px;left:20px;"&gt;&lt;/div&gt;<br>
+				&nbsp;&nbsp;&nbsp;&lt;/form&gt;<br>
+				&lt;/div&gt;<br><font style="color:#f00;">解决方案：在该元素里添加IE6条件注释，即iframe标记。<br>&lt; !--[if IE 6.0]&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;iframe frameborder=”0px”&gt;&lt;/iframe&gt;<br>
+&lt;![end if]--&gt;</font></div>
+		<div class="content">
+			<div id="selectBox">
+				<div id="select">
+				<form>
+					<select name="" id="selects">
+						<option value="1">测试项1</option>
+						<option value="2">测试项2</option>
+						<option value="3">测试项3</option>
+						<option value="4">测试项4</option>
+						<option value="5">测试项5</option>
+					</select>
+					<div id="box"><br><br><br>没添加注释</div>
+				</form>
+				</div>
+				<div id="select2">
+				<form>
+					<select name="" id="selects2">
+						<option value="1">测试项1</option>
+						<option value="2">测试项2</option>
+						<option value="3">测试项3</option>
+						<option value="4">测试项4</option>
+						<option value="5">测试项5</option>
+					</select>
+					<div id="box2">
+						<!--[if IE 6.0]>
+           					<iframe frameborder="0px" style="width:100px;height:100px;"></iframe>
+      				    <![endif]-->
+      				    添加了注释(bug内容都写在了一起要等几分钟才可以看到效果).
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pngBug">
+		<div class="head">NO13.IE6不支持背景透明的bug</div>
+		<div class="describe">IE6不支持png图片的背景透明。<br>
+		<font style="color:#f00">解决办法：导入相应的脚本，并写入一段代码。代码如下格式：<br>
+		&lt;script type="text/javascript"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js文件名.fix('img[,选择器1,选择器2,...]');<br>&lt;/script&gt;</font></div>
+	    <script type="text/javascript">
+	    	EvPNG.fix('img,.logo4,.logo5,.logo6');
+	    </script>
+		<div class="content">
+			<div id="pngBox">
+				<div id="main">
+					<h1>普通PNG图片<em>可以将图片储存为png8实现IE6的透明，效果与GIF相同。</em></h1>
+    				<div class="logo1">
+        				<h1>PNG8位</h1>
+    				</div>
+    				<div class="logo2">
+         				<h1>PNG24位</h1>
+    				</div>
+    				<div class="logo3">
+         				<h1>PNG32位</h1>
+    				</div>
+				</div>
+				<div id="main">
+					<h1>高质量PNG图片<em>可以通过JS实现IE6下透明效果。</em></h1>
+    				<div class="logo4">
+        				<h1>PNG8位</h1>
+    				</div>
+    				<div class="logo5">
+         				<h1>PNG24位</h1>
+   					</div>
+    				<div class="logo6">
+         				<h1>PNG32位</h1>
+    				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="ulBug">
+		<div class="head">NO14.ul做导航英文字符跳动</div>
+		<div class="describe">ul做导航英文字符跳动<br>
+		<font style="color:#f00">解决办法：li的height值和行高设置为一样的值</font></div>
+		<div class="content">
+			<div id="ulBox">
+				<p>li的height值和行高不同</p>
+				<ul id="no1">
+					<li><a href="">Home</a></li>
+					<li><a href="">News</a></li>
+					<li><a href="">联系我们</a></li>
+					<li><a href="">More</a></li>
+				</ul><br>
+				<p>li的height值和行高相同</p>
+				<ul id="no1">
+					<li><a href="">Home</a></li>
+					<li><a href="">News</a></li>
+					<li><a href="">联系我们</a></li>
+					<li><a href="">More</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+</body>
+</html>

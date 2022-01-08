@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  外联样式表-->
+    <link rel="stylesheet" href="">
+    <style>
+        /* 标签选择器 */
+        h1 {
+            color: red;
+        }
+
+        p {
+            color: seashell;
+        }
+
+        /* 标签组选择器 */
+        h1,
+        p {
+            color: steelblue;
+        }
+
+        /* class选择器 */
+        .abc {
+            color: turquoise;
+        }
+
+        /* id选择器 */
+        #bcd {
+            color: yellow;
+        }
+
+        /* 伪类选择器 */
+        a:link {
+            color: teal;
+        }
+
+        a:hover {
+            color: violet;
+        }
+
+        a:active {
+            color: #636363;
+        }
+
+        a:visited {
+            color: salmon;
+        }
+
+        p:first-child {
+            color: tomato;
+        }
+
+        p:last-child {
+            color: violet;
+        }
+
+        p:nth-child(3) {
+            color: yellowgreen;
+        }
+
+        /* 群组选择器 */
+
+        p,
+        em {
+            color: yellow;
+        }
+
+        p em {
+            color: tomato;
+        }
+
+        div.a {
+            color: slateblue;
+        }
+
+        div#bad {
+            color: teal;
+        }
+
+        /* 后代选择器 */
+        div p em {
+            color: violet;
+        }
+
+        div>a {
+            color: royalblue;
+        }
+
+        /* a下面的一个兄弟 */
+        a+h1 {
+            color: teal;
+        }
+
+        /* em下的所有兄弟 */
+
+        em~p {
+            color: red;
+        }
+
+
+        /* 属性选择器
+     */
+        /*[属性名]      选择含有指定属性的元素
+        [属性名=属性值]  选择含有指定属性和属性值的元素
+        [属性名^=属性值] 选择属性值以指定值开头的元素
+        [属性名$=属性值] 选择属性值以指定值结尾的元素
+        [属性名*=属性值]  选择属性值含有某值的元素的元素*/
+
+        /* p[title]
+        p[title^=abc]
+        p[title$=c]
+        p[title*=a]*/
+
+
+        p[title] {
+            color: brown;
+        }
+
+        /* 任何   [属性名=属性值] 都可以 */
+        /* [属性名^=属性值] 选择属性值以指定值开头的元素 */
+        p[title^=abc] {
+            color: violet;
+        }
+        /* [属性名$=属性值] 选择属性值以指定值结尾的元素 */
+        p[title$=c] {
+            color: turquoise;
+        }
+        /* [属性名*=属性值]  选择属性值含有某值的元素的元素*/
+        p[title*=a] {
+            color: tomato;
+
+        }
+
+
+
+
+/* 
+        选择器的优先级计算 
+        
+        a            b                      c                        d 
+        行内样式     id选择器的个数 
+                                          伪类选择器的个数         标签选择器的个数
+                                          便签的个数 
+                                          类选择器的个数 
+                                          属性选择器的个数 
+        1000         0100                  0010                           001  */
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#">这是一个超链接</a>
+        <h1>天气怎么样</h1>
+        <p id="bcd">今天天气真好！</p>
+        <p>今天天气真好！<em>我在这</em> </p>
+        <p class="abc">今天天气真好！</p>
+        <p>
+            <font color="#000">今天天气真好！</font>
+        </p>
+        <p title>今天天气真好！</p>
+        <em>今天天气真好！</em>
+        <p title="abc">今天天气真好！</p>
+        <p title="abcd">今天天气真好！</p>
+        <p title="abcdef">今天天气真好！</p>
+    </div>
+
+</html>

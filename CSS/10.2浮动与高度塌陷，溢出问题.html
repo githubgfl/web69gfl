@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        /* 
+            float :left  right
+            clear:left right  both
+               
+               overflow:hidden  隐藏多出的部分  同样也是开启BFC
+               overflow:auto    根据实际情况是否增加
+               overfolw:scroll  增加滚动条
+        
+                给最后一个元素设置 clear：felt 不受浮动影响
+
+        渐进式增强 
+          主要是兼容低版本浏览器，尽可能让高版本浏览器用户有更好的用户体验。
+
+
+        优雅降级   
+          主要是考虑高版本浏览器用户更好的体验，尽可能兼容低版本浏览器用户
+
+         */
+        .sg1{
+            background-color: royalblue;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sg1">
+        我是帅哥
+    </div>
+    <div class="sg1">
+        我是帅哥
+    </div>
+    <div class="sg1">
+        我是帅哥
+    </div>
+    <di class="sg1">
+        我是帅哥
+    </div>
+    <div class="sg1">
+        我是帅哥
+    </div>
+</body>
+</html>

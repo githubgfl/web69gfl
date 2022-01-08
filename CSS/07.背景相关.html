@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div
+    {  width: 200px;
+        height:200px;
+        background-color: springgreen;
+        background-image: url();
+        background-position: center; /*背景图片位置公分为9宫格 */
+        background-repeat: repeat-x;
+        background-attachment: fixed;
+        
+    }
+    /* list-style:none ;取消默认的圆点和序号
+       list-style-type:square;列表前面的样式
+       list-style-position：inside;
+       list-style-image:url();
+
+    
+    
+    
+    
+    */
+
+     ul{
+         list-style-type:none;
+        margin:0px;
+        padding: 0px;
+
+     }
+     li
+    {
+     background: url(./li.jpg) no-repeat 0px 2px;
+      padding-left: 40px;
+    }
+    a:hover{
+        color: aqua;
+    }
+    li:first-child{
+           color: blue;
+    }
+    li:nth-child(2){
+        color: blue;
+    }
+    </style>
+</head>
+<body>
+    <div>
+         <ul>
+             <li><a>abc</a></li>
+             <li><a>abc</a></li>
+             <li><a>abc</a></li>
+             <li><a>abc</a></li>
+             <li><a>abc</a></li>
+             <li><a>abc</a></li>
+            
+         </ul>
+    </div>
+</body>
+</html>

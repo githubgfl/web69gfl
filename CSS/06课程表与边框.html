@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--  
+            border-collapse: collapse; 边框合并
+            cursor:pointer;     划入变成手爪子
+            background-color:transparent;背景颜色透明
+            border:none;
+            window.onload=function(){
+                
+              var abc=document.getElementsByTagName("tr")
+
+              for (var i=1;i<abc.length;i++)
+              {
+                  abc[i].onmouseover=function(){
+                      this.className="aut"
+                  }
+              
+              abc[i].onmouseout=function(){
+                  this.className=" "
+              }}
+            }
+        -->
+    <style>
+        table,td{
+            border:red 1px solid;
+            text-align: center;
+            border-collapse: collapse; 
+            
+
+
+        }
+        tr{
+            background-color:#eee;
+        }
+      /* tr:hover  {
+              background: saddlebrown; 
+              cursor:pointer;
+        } */
+        .aut {
+            background: saddlebrown; 
+              cursor:pointer;
+    </style>
+<script>
+       window.onload=function(){
+           var abc=document.getElementsByTagName("tr")
+           for(var i=1;i<abc.length;i++)
+           {
+              abc[i].onmouseover=function(){
+                  this.className="aut"
+              }
+
+              abc[i].onmouseout=function(){
+                  this.className=""
+              }
+           }
+       }
+     </script>
+
+</head>
+
+
+
+<body>
+    <table  height="400px"width="400px"
+     >   
+       <caption>课程表</caption>
+       <tr>
+           <td>周一</td>
+           <td>周二</td>
+           <td>周三</td>
+           <td>周四</td>
+           <td>周五</td>
+           <td>周六</td>
+           <td>周日</td>
+           <td>周八</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+           <td>abc</td>
+       </tr>
+       <tr>
+           
+        <td colspan="8">abc</td>
+  
+        
+       
+    </tr>
+    </table>
+
+
+</body>
+</html>

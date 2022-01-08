@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+
+
+        1.CSS模块化开发
+
+问题:200页面
+
+   发现:200页面有很多地方样式是相同的
+        每个页面有自己不同的样式
+
+   如果所有的选择器都写到一个文件里，那么样式表会非常庞大，开发效率低，维护困难
+
+解决方法:我们采用CSS模块化开发
+   思想:所有页面相同的样式放到一个公用的CSS文件中
+        每个页面专有的样式放到专有的CSS文件中
+
+
+   最后，上线的时候，在合并（粘贴）到一起
+
+开发过程:
+   public.css 公有样式
+       --整个网站背景色 背景图片 
+       --文档顶部
+       --统一文字样式
+       --banner
+       --导航
+       --版权
+
+
+   index.css index.html专有样式
+
+  首页，测试的时候，引入public.css index.css
+
+   
+  news.css news.html专有样式
+  新闻页: 测试时候 引入public.css news.css
+
+
+上线前,将所有CSS文件合并成一个之后style.css，再压缩（减少体积）,挨着个文件手动引入
+
+
+
+CSS模块化开发
+
+合并  压缩 将来自动完成!
+ grunt gulp webpack
+
+
+-->
+
+    
+</body>
+</html>

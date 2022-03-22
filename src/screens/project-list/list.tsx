@@ -13,19 +13,19 @@ export interface Project {
   organization: string;
 }
 interface ListProps extends TableProps<Project> {
-
+  refresh:()=>void,
   users: User[];
 }
 const List = ({ users, ...props }: ListProps) => {
 
   const {metate}=useEditProject()
-  const pinProject=(id:number)=>(pin:boolean)=>metate({id,pin})
+  const pinProject=(id:number)=>(pin:boolean)=>metate({id,pin}).then(props.refresh)
   return <Table pagination={false} columns={[
     {
 
      title:<Pin checked={true} disabled={true}/>,
       render(value,project){
-        return <Pin checked={project.pin} onCheckedChange={pin=>pinProject(project.id)
+        return <Pin checked={project.pin} onCheckedChange={pinProject(project.id)
 
          
         }

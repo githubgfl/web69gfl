@@ -21,7 +21,7 @@ export const ProjectListScreen = () => {
 const [param,setParam]=useProjectsSearchParams()
   useDocumentTitle('项目列表',false)
   const debouncedParam = useDebounce(param, 100);
-  const {isLoading,error,data:list}=useProjects(debouncedParam)
+  const {isLoading,error,data:list,retry}=useProjects(debouncedParam)
   const {data:users}=useUsers()
   // useEffect(() => {
   //  run(client('projects',{data:cleanObject(debouncedParam)}))
@@ -53,7 +53,7 @@ const [param,setParam]=useProjectsSearchParams()
       <h1 >项目列表</h1>
       <SearchPanel users={users||[]} param={param} setParam={setParam} />
       {error?<Typography.Text type={'danger'}>{error.message}</Typography.Text>:null}
-      <List users={users||[]}  loading={isLoading} dataSource={list||[]} />
+      <List   refresh={retry} users={users||[]}  loading={isLoading} dataSource={list||[]} />
     </Container>
 
   );

@@ -1,3 +1,4 @@
+import {useCallback} from 'react'
 import qs from "qs";
 import { UserAuth } from "context/auth-context";
 import {logout} from '../auth-provider'
@@ -40,8 +41,10 @@ export const http=async(endpoint:string,{data,token,headers,...customConfig}: Co
 }
 export const useHttp=()=>{
     const {user}=UserAuth()
-    return (...[endpoint,config]:Parameters<typeof http>)=>
-        http(endpoint,{...config,token:user?.token});
+    return   useCallback(
+      (...[endpoint,config]:Parameters<typeof http>)=>
+        http(endpoint,{...config,token:user?.token}),[user?.token]
+    )   ;
     
 }
 

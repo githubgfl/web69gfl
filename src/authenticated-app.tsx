@@ -9,6 +9,7 @@ import {Route, Routes,Navigate } from "react-router";
 import { BrowserRouter as Router } from "react-router-dom"
  import {ProjectScreen} from './screens/project'
 import {resetRoute} from './utils'
+import {ProjectModal} from './screens/project-list/project-modal'
 
 export const AuthenticatedApp=()=>{
   // const value:any=undefined;
@@ -28,6 +29,8 @@ export const AuthenticatedApp=()=>{
          
         </Router> 
            </Main>
+
+           <ProjectModal/>
    
 </Container>
 }

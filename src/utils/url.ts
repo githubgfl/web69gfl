@@ -9,8 +9,10 @@ export const useUrlQueryParam = <K extends string>(keys: K[]) => {
         useMemo(() => keys.reduce((prev, key) => {
 
             return { ...prev, [key]: searchParams.get(key) || '' }
-
-        }, {} as { [key in K]: string }),[searchParams]),
+           
+        }, {} as { [key in K]: string }),
+        // eslint-disable-line react-hooks/exhaustive-deps
+        [searchParams]),
 
 
 

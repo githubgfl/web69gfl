@@ -3,10 +3,14 @@ import React from "react";
 import {Form,Input} from 'antd'
 import {LongButton} from './index'
 import {useAsync} from '../utils/use-async'
+// import {useDispatch} from 'react-redux'
+// import { login } from "store/auth.slice";
 export const LoginScreen = ({onError}:{onError:(error:any)=>void}) => {
 
   const {login}=UserAuth()
   const {run,isLoading}=useAsync(undefined,{throwOnError:true})
+
+  // const dispatch =useDispatch()
   // const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
   //   event.preventDefault();
   //   const username = (event.currentTarget.elements[0] as HTMLInputElement)
@@ -23,7 +27,7 @@ export const LoginScreen = ({onError}:{onError:(error:any)=>void}) => {
   // 
 
   const handleSubmit = async (values:{username:string,password:string}) => {
-
+  //  dispatch(login(values))
     try{
     await run(login(values));
   } 

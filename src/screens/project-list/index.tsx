@@ -12,6 +12,9 @@ import {useProjects} from 'utils/project'
 import { useUsers } from "utils/user";
 import {useUrlQueryParam} from 'utils/url'
 import { useProjectsSearchParams } from "./util";
+import {ButtonNoPadding,Row} from "components/lib";
+import {useDispatch} from 'react-redux'
+import { projectListActions } from "./project-list-slice";
 export const ProjectListScreen = () => {
   
 
@@ -23,6 +26,8 @@ const [param,setParam]=useProjectsSearchParams()
   const debouncedParam = useDebounce(param, 100);
   const {isLoading,error,data:list,retry}=useProjects(debouncedParam)
   const {data:users}=useUsers()
+
+  const dispatch=useDispatch()
   // useEffect(() => {
   //  run(client('projects',{data:cleanObject(debouncedParam)}))
    
@@ -50,7 +55,14 @@ const [param,setParam]=useProjectsSearchParams()
   // });
   return (
     <Container>
-      <h1 >项目列表</h1>
+      <Row between={true}>
+         <h1 >项目列表</h1>
+         <ButtonNoPadding onClick={()=>dispatch(projectListActions.openProjectModal())} type={"link"}>
+            创建项目
+         </ButtonNoPadding>
+      </Row>
+     
+
       <SearchPanel users={users||[]} param={param} setParam={setParam} />
       {error?<Typography.Text type={'danger'}>{error.message}</Typography.Text>:null}
       <List   refresh={retry} users={users||[]}  loading={isLoading} dataSource={list||[]} />
